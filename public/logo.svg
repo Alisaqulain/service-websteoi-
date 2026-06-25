@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-label="AegisCore logo">
+  <defs>
+    <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="12" fill="url(#logo-grad)"/>
+  <path d="M24 10 L34 16 L34 28 C34 34 24 38 24 38 C24 38 14 34 14 28 L14 16 Z" stroke="white" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+  <path d="M20 24 L23 27 L29 21" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
