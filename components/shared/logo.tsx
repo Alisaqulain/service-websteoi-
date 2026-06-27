@@ -8,31 +8,38 @@ interface LogoProps {
   size?: "sm" | "md" | "lg";
 }
 
-const imageSizes = { sm: 28, md: 36, lg: 44 };
+const sizeClasses = {
+  sm: "h-11 w-auto sm:h-12",
+  md: "h-12 w-auto sm:h-14 md:h-[56px]",
+  lg: "h-14 w-auto sm:h-16 md:h-[64px]",
+};
 
 export function Logo({ className, showText = false, size = "md" }: LogoProps) {
   const textSizes = {
-    sm: "text-lg",
-    md: "text-xl",
-    lg: "text-2xl",
+    sm: "text-base",
+    md: "text-lg",
+    lg: "text-xl",
   };
 
   return (
     <a
       href="#home"
-      className={cn("group flex items-center gap-2.5", className)}
+      className={cn("group flex shrink-0 items-center gap-2.5", className)}
       aria-label={`${SITE.name} home`}
     >
       <Image
         src="/logo.webp"
         alt={`${SITE.name} logo`}
-        width={imageSizes[size]}
-        height={imageSizes[size]}
-        className="h-auto w-auto transition-transform duration-300 group-hover:scale-105"
+        width={120}
+        height={120}
         priority
+        className={cn(
+          "transition-transform duration-300 group-hover:scale-105",
+          sizeClasses[size]
+        )}
       />
       {showText && (
-        <span className={cn("font-bold tracking-tight text-foreground", textSizes[size])}>
+        <span className={cn("font-bold tracking-tight text-black", textSizes[size])}>
           {SITE.name}
         </span>
       )}

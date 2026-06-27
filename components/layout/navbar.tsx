@@ -15,8 +15,8 @@ export function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-border/40 bg-white">
-        <div className="container mx-auto flex h-[72px] items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Logo size="sm" />
+        <div className="container mx-auto flex min-h-[76px] items-center justify-between gap-3 px-4 py-3 sm:min-h-[84px] sm:px-6 lg:px-8">
+          <Logo size="md" className="min-w-0" />
 
           <nav
             className="hidden items-center rounded-full bg-primary px-2 py-2 lg:flex"

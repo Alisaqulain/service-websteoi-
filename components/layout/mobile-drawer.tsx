@@ -43,8 +43,8 @@ export function MobileDrawer({ open, onOpenChange, activeSection }: MobileDrawer
                   exit={{ x: "100%" }}
                   transition={{ type: "spring", damping: 30, stiffness: 300 }}
                 >
-                  <div className="flex items-center justify-between">
-                    <Logo size="sm" />
+                  <div className="flex items-center justify-between gap-3">
+                    <Logo size="md" />
                     <Dialog.Close asChild>
                       <Button variant="ghost" size="icon" aria-label="Close menu">
                         <X className="size-5" />

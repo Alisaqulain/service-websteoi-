@@ -6,15 +6,15 @@ import { ScrollReveal } from "@/components/shared/scroll-reveal";
 
 export function GallerySection() {
   return (
-    <section id="gallery" className="bg-white py-14 md:py-20" aria-label="Inside our trusted support">
+    <section id="gallery" className="scroll-mt-24 bg-white py-12 sm:py-14 md:py-20" aria-label="Inside our trusted support">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid items-start gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-14">
+        <div className="grid items-start gap-8 lg:grid-cols-[1fr_1.6fr] lg:gap-14">
           <ScrollReveal direction="left">
-            <div className="lg:sticky lg:top-28">
-              <h2 className="text-[clamp(1.75rem,3.5vw,2.75rem)] font-bold leading-tight text-black">
+            <div className="text-center lg:sticky lg:top-28 lg:text-left">
+              <h2 className="text-[clamp(1.5rem,5vw,2.75rem)] font-bold leading-tight text-black">
                 Inside Our Trusted Support
               </h2>
-              <p className="mt-5 text-base leading-relaxed text-[#555555]">
+              <p className="mt-4 text-sm leading-relaxed text-[#555555] sm:mt-5 sm:text-base">
                 Explore candid moments and environments reflecting our commitment to
                 confidentiality, integrity, and procedural expertise for Karnataka
                 government employees.
@@ -23,11 +23,11 @@ export function GallerySection() {
           </ScrollReveal>
 
           <ScrollReveal direction="right">
-            <div className="columns-2 gap-3 sm:columns-3 sm:gap-4">
+            <div className="columns-2 gap-2 sm:columns-2 sm:gap-3 md:columns-3 md:gap-4">
               {GALLERY_IMAGES.map((item, index) => (
                 <div
                   key={`${item.src}-${index}`}
-                  className="mb-3 break-inside-avoid overflow-hidden rounded-2xl sm:mb-4"
+                  className="mb-2 break-inside-avoid overflow-hidden rounded-xl sm:mb-3 sm:rounded-2xl md:mb-4"
                 >
                   <Image
                     src={item.src}

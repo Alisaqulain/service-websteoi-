@@ -5,11 +5,11 @@ import { SITE } from "@/constants/site";
 
 export function FloatingActions() {
   return (
-    <div className="fixed bottom-6 right-4 z-50 flex flex-col gap-3 sm:bottom-8 sm:right-6">
+    <div className="fixed bottom-5 right-3 z-50 flex flex-col gap-2.5 pb-[env(safe-area-inset-bottom)] sm:bottom-8 sm:right-6 sm:gap-3">
       <a
         href={`tel:${SITE.phone.replace(/\s/g, "")}`}
         aria-label="Call us"
-        className="flex size-11 items-center justify-center rounded-full border-2 border-primary bg-white text-primary shadow-md transition-transform hover:scale-105 sm:size-12"
+        className="flex size-11 items-center justify-center rounded-full border-2 border-primary bg-white text-primary shadow-md transition-transform active:scale-95 sm:size-12 sm:hover:scale-105"
       >
         <Phone className="size-5" />
       </a>
@@ -18,7 +18,7 @@ export function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contact us on WhatsApp"
-        className="flex size-11 items-center justify-center rounded-full border-2 border-primary bg-white text-primary shadow-md transition-transform hover:scale-105 sm:size-12"
+        className="flex size-11 items-center justify-center rounded-full border-2 border-primary bg-white text-primary shadow-md transition-transform active:scale-95 sm:size-12 sm:hover:scale-105"
       >
         <MessageCircle className="size-5" />
       </a>

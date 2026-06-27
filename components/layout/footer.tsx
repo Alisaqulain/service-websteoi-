@@ -4,13 +4,13 @@ import { Logo } from "@/components/shared/logo";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-white">
-      <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center gap-8">
-          <Logo size="md" />
+    <footer className="border-t border-border bg-white pb-6 pt-10 sm:pb-8 sm:pt-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center gap-6 sm:gap-8">
+          <Logo size="lg" />
 
           <nav
-            className="flex flex-wrap items-center justify-center gap-6"
+            className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 sm:gap-6"
             aria-label="Footer navigation"
           >
             {FOOTER_LINKS.map((link) => (
@@ -42,7 +42,7 @@ export function Footer() {
             </a>
           </div>
 
-          <p className="text-sm text-[#555555]">
+          <p className="px-2 text-center text-xs text-[#555555] sm:text-sm">
             &copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.
           </p>
         </div>

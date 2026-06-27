@@ -18,11 +18,13 @@ export function ScrollReveal({
   className,
   delay = 0,
 }: ScrollRevealProps) {
+  const offset = direction === "left" ? -40 : 40;
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: direction === "left" ? -60 : 60 }}
+      initial={{ opacity: 0, x: offset }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: true, margin: "-40px" }}
       transition={{ ...smoothTransition, delay }}
       className={cn(className)}
     >
