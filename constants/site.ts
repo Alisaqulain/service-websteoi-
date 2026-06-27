@@ -1,52 +1,27 @@
 export const SITE = {
-  name: "AegisCore",
-  tagline: "Enterprise Security Intelligence",
+  name: "Service Security Knowledge",
+  tagline: "Expert Government Service Advisory in Bangalore",
   description:
-    "AegisCore delivers unified security knowledge, threat intelligence, and compliance guidance for modern enterprises.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://aegiscore.com",
-  email: "hello@aegiscore.com",
-  phone: "+1 (800) 555-0198",
-  address: "1200 Innovation Drive, Suite 400, Austin, TX 78701",
+    "Service Security Knowledge offers expert procedural and advisory support to Karnataka government officials, police personnel, PSU employees, and retirees.",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://servicesecurityknowledge.com",
+  email: "servicesecurityknowledge@gmail.com",
+  phone: "+918277493659",
+  whatsapp: "918277493659",
+  address:
+    "B416 Willson Vintage, Behind Adugodi Post Office, Wilsongarden, BENGALURU - 560030",
+  officeHours: "Monday–Friday: 9:00 AM – 6:00 PM, Saturday & Sunday: Closed",
 } as const;
 
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
-  { label: "Features", href: "#features" },
+  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Book Now", href: "#book" },
 ] as const;
 
-export const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" as const },
-  { label: "Twitter", href: "https://twitter.com", icon: "twitter" as const },
-  { label: "GitHub", href: "https://github.com", icon: "github" as const },
-  { label: "YouTube", href: "https://youtube.com", icon: "youtube" as const },
+export const FOOTER_LINKS = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Book Now", href: "#book" },
 ] as const;
-
-export const FOOTER_LINKS = {
-  product: [
-    { label: "Platform Overview", href: "#features" },
-    { label: "Threat Intelligence", href: "#services" },
-    { label: "Compliance Hub", href: "#services" },
-    { label: "Integrations", href: "#features" },
-  ],
-  company: [
-    { label: "About Us", href: "#benefits" },
-    { label: "Careers", href: "#" },
-    { label: "Press", href: "#" },
-    { label: "Contact", href: "#cta" },
-  ],
-  resources: [
-    { label: "Documentation", href: "#" },
-    { label: "Security Blog", href: "#" },
-    { label: "Case Studies", href: "#testimonials" },
-    { label: "Support Center", href: "#faq" },
-  ],
-  legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
-    { label: "Cookie Policy", href: "#" },
-    { label: "Security", href: "#" },
-  ],
-} as const;

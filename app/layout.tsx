@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { ThemeProvider } from "@/hooks/use-theme";
+import { FloatingActions } from "@/components/layout/floating-actions";
 import {
   defaultMetadata,
   getOrganizationSchema,
@@ -20,10 +20,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = defaultMetadata;
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafbfc" },
-    { media: "(prefers-color-scheme: dark)", color: "#030712" },
-  ],
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
 };
@@ -37,7 +34,7 @@ export default function RootLayout({
   const websiteSchema = getWebSiteSchema();
 
   return (
-    <html lang="en" suppressHydrationWarning className={`${plusJakarta.variable} h-full scroll-smooth`}>
+    <html lang="en" className={`${plusJakarta.variable} h-full scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"
@@ -52,20 +49,19 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col antialiased">
-        <ThemeProvider>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-xl focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
-          >
-            Skip to main content
-          </a>
-          <Navbar />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </ThemeProvider>
+      <body className="min-h-full flex flex-col antialiased bg-white text-black">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-xl focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+        >
+          Skip to main content
+        </a>
+        <Navbar />
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
+        <Footer />
+        <FloatingActions />
       </body>
     </html>
   );

@@ -1,228 +1,244 @@
-import {
-  Shield,
-  Lock,
-  Eye,
-  Zap,
-  Globe,
-  BarChart3,
-  FileCheck,
-  Users,
-  Cloud,
-  Radar,
-  KeyRound,
-  Layers,
-  type LucideIcon,
-} from "lucide-react";
-
-export const TRUST_LOGOS = [
-  "NexaVault",
-  "CloudSphere",
-  "DataForge",
-  "SecureLink",
-  "QuantumEdge",
-  "PulseNet",
-  "IronGate",
-  "VertexSys",
-] as const;
-
-export interface FeatureItem {
-  icon: LucideIcon;
+export interface ValueItem {
   title: string;
   description: string;
-  stat: string;
-  statLabel: string;
 }
 
-export const FEATURES: FeatureItem[] = [
+export const VISION_MISSION_VALUES: ValueItem[] = [
   {
-    icon: Shield,
-    title: "Unified Threat Defense",
+    title: "Vision",
     description:
-      "Centralize detection, response, and remediation across your entire infrastructure with real-time intelligence feeds.",
-    stat: "99.9",
-    statLabel: "Uptime SLA",
+      "To empower government personnel with secure and trusted service solutions.",
   },
   {
-    icon: Eye,
-    title: "Continuous Monitoring",
+    title: "Mission",
     description:
-      "24/7 visibility into vulnerabilities, misconfigurations, and anomalous behavior across cloud and on-prem environments.",
-    stat: "50M",
-    statLabel: "Events Analyzed Daily",
+      "Providing confidential, expert procedural and advisory support.",
   },
   {
-    icon: Lock,
-    title: "Zero-Trust Architecture",
+    title: "Value",
     description:
-      "Enforce least-privilege access with adaptive authentication, micro-segmentation, and encrypted data flows.",
-    stat: "256",
-    statLabel: "Bit Encryption",
-  },
-  {
-    icon: BarChart3,
-    title: "Executive Dashboards",
-    description:
-      "Transform complex security metrics into actionable insights with customizable reports for every stakeholder.",
-    stat: "40",
-    statLabel: "Report Templates",
-  },
-  {
-    icon: FileCheck,
-    title: "Compliance Automation",
-    description:
-      "Streamline SOC 2, ISO 27001, HIPAA, and GDPR workflows with automated evidence collection and audit trails.",
-    stat: "12",
-    statLabel: "Frameworks Supported",
-  },
-  {
-    icon: Zap,
-    title: "Instant Response Playbooks",
-    description:
-      "Deploy pre-built incident response workflows that reduce mean time to resolution by up to 73%.",
-    stat: "73",
-    statLabel: "Faster Resolution",
+      "Integrity and confidentiality at the core of our services.",
   },
 ];
 
-export interface ServiceItem {
+export interface ServiceSubItem {
   title: string;
   description: string;
   image: string;
-  gradient: string;
 }
 
-export const SERVICES: ServiceItem[] = [
+export interface ServiceCategory {
+  slug: string;
+  title: string;
+  description: string;
+  items: ServiceSubItem[];
+}
+
+export const HERO_IMAGE = "/1.webp";
+export const HERO_OVERLAY_IMAGES = ["/21.webp", "/22.webp"] as const;
+export const ABOUT_IMAGE = "/2.webp";
+export const BOOKING_IMAGE = "/1.webp";
+
+export const GALLERY_IMAGES = [
+  { src: "/2.webp", tall: true },
+  { src: "/3.webp", tall: false },
+  { src: "/5.webp", tall: true },
+  { src: "/6.webp", tall: false },
+  { src: "/8.webp", tall: false },
+  { src: "/9.webp", tall: true },
+  { src: "/11.webp", tall: false },
+  { src: "/12.webp", tall: true },
+  { src: "/14.webp", tall: false },
+  { src: "/15.webp", tall: true },
+  { src: "/16.webp", tall: false },
+  { src: "/17.webp", tall: true },
+  { src: "/18.webp", tall: false },
+  { src: "/19.webp", tall: false },
+  { src: "/20.webp", tall: true },
+  { src: "/21.webp", tall: false },
+  { src: "/22.webp", tall: true },
+] as const;
+
+export const CONTACT_BG_IMAGE = "/14.webp";
+
+export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
-    title: "Threat Intelligence",
+    slug: "ipr-apr-filing",
+    title: "IPR & APR Filing",
     description:
-      "Proactive threat hunting powered by global intelligence networks and machine learning correlation engines.",
-    image: "/illustrations/service-threat.svg",
-    gradient: "from-blue-600/20 to-cyan-500/20",
+      "Comprehensive IPR & APR filing assistance ensuring accuracy and rule compliance for Karnataka state government employees.",
+    items: [
+      {
+        title: "Filing guidance",
+        description:
+          "Expert guidance for correct IPR & APR filing under govt rules.",
+        image: "/3.webp",
+      },
+      {
+        title: "Verification & submission",
+        description:
+          "Verification and correct submission for smooth approval.",
+        image: "/4.webp",
+      },
+      {
+        title: "Defect rectification",
+        description:
+          "Fix errors to ensure your filings meet all requirements.",
+        image: "/5.webp",
+      },
+    ],
   },
   {
-    title: "Cloud Security Posture",
+    slug: "tax-filing",
+    title: "Tax Filing",
     description:
-      "Continuous assessment of multi-cloud environments with automated remediation recommendations.",
-    image: "/illustrations/service-cloud.svg",
-    gradient: "from-indigo-600/20 to-purple-500/20",
+      "Dedicated tax filing services tailored for government employees and retirees ensuring lawful compliance.",
+    items: [
+      {
+        title: "Income tax return processing",
+        description:
+          "Processing tax returns for salaried and retired govt servants.",
+        image: "/6.webp",
+      },
+      {
+        title: "Assistance with IT notices",
+        description: "Help handling income tax notices with expert advice.",
+        image: "/7.webp",
+      },
+    ],
   },
   {
-    title: "Identity & Access Management",
+    slug: "departmental-enquiries",
+    title: "Departmental Enquiries",
     description:
-      "Granular access controls, SSO integration, and privileged account monitoring for enterprise teams.",
-    image: "/illustrations/service-identity.svg",
-    gradient: "from-violet-600/20 to-fuchsia-500/20",
+      "Specialized support in navigating departmental enquiries with confidentiality and procedural accuracy.",
+    items: [
+      {
+        title: "Charge memo scrutiny",
+        description: "Detailed scrutiny of charge memos in departmental cases.",
+        image: "/8.webp",
+      },
+      {
+        title: "Defence replies",
+        description: "Crafting strong defence replies for enquiry proceedings.",
+        image: "/9.webp",
+      },
+      {
+        title: "Procedural guidance",
+        description: "Step-by-step procedural guidance through enquiries.",
+        image: "/10.webp",
+      },
+    ],
   },
   {
-    title: "Security Awareness Training",
+    slug: "memo-notice-replies",
+    title: "Memo & Notice Replies",
     description:
-      "Interactive learning modules and phishing simulations that build a security-first culture organization-wide.",
-    image: "/illustrations/service-training.svg",
-    gradient: "from-teal-600/20 to-emerald-500/20",
+      "Professional drafting of compliant replies ensuring natural justice and service rule adherence.",
+    items: [
+      {
+        title: "Rule-based replies",
+        description: "Professionally drafted replies based on service rules.",
+        image: "/11.webp",
+      },
+      {
+        title: "Natural justice compliance",
+        description:
+          "Ensuring fair and compliant responses to show cause notices.",
+        image: "/12.webp",
+      },
+    ],
+  },
+  {
+    slug: "service-retirement",
+    title: "Service & Retirement",
+    description:
+      "Trusted advisory on promotions, vigilance, pension, and retirement matters for government employees.",
+    items: [
+      {
+        title: "Promotion & seniority advice",
+        description: "Guidance on promotions and seniority for career growth.",
+        image: "/13.webp",
+      },
+      {
+        title: "Vigilance proceedings",
+        description: "Support with vigilance case procedures and proceedings.",
+        image: "/14.webp",
+      },
+      {
+        title: "Pension & gratuity advisory",
+        description: "Trusted advice on pension and gratuity entitlements.",
+        image: "/15.webp",
+      },
+    ],
+  },
+  {
+    slug: "ksat-assistance",
+    title: "KSAT Assistance",
+    description:
+      "Procedural & advisory assistance for Karnataka administrative tribunal service matter cases.",
+    items: [
+      {
+        title: "Dismissal & removal support",
+        description:
+          "Assistance with dismissal and removal procedures at KSAT.",
+        image: "/16.webp",
+      },
+      {
+        title: "Disciplinary penalties",
+        description: "Support on disciplinary penalty cases before KSAT.",
+        image: "/17.webp",
+      },
+      {
+        title: "Promotion disputes",
+        description: "Guidance on resolving promotion and seniority disputes.",
+        image: "/18.webp",
+      },
+      {
+        title: "Probation termination",
+        description: "Help with probation-related termination cases.",
+        image: "/19.webp",
+      },
+      {
+        title: "Pension & post-retirement benefits",
+        description:
+          "Assistance with pension and post-retirement benefit claims.",
+        image: "/20.webp",
+      },
+    ],
   },
 ];
 
-export const BENEFITS = [
-  "Reduce security incidents by up to 68% within the first quarter",
-  "Consolidate 15+ security tools into one unified platform",
-  "Achieve compliance readiness 3x faster with automated workflows",
-  "Gain real-time visibility across hybrid and multi-cloud estates",
-  "Empower teams with AI-driven remediation recommendations",
-  "Scale security operations without proportional headcount growth",
-] as const;
-
-export interface ProcessStep {
+export interface WhyChooseItem {
   number: string;
   title: string;
   description: string;
 }
 
-export const PROCESS_STEPS: ProcessStep[] = [
+export const WHY_CHOOSE: WhyChooseItem[] = [
   {
-    number: "01",
-    title: "Discovery & Assessment",
+    number: "1",
+    title: "IPR/APR Support",
     description:
-      "We map your attack surface, evaluate current controls, and identify critical gaps in your security posture.",
+      "We provide precise filing support for APR/IPR compliant with government rules.",
   },
   {
-    number: "02",
-    title: "Strategy & Architecture",
+    number: "2",
+    title: "Tax Expertise",
     description:
-      "Our experts design a tailored security framework aligned with your business objectives and compliance requirements.",
+      "Expert guidance ensures accuracy and compliance in tax filings for government servants.",
   },
   {
-    number: "03",
-    title: "Implementation & Integration",
+    number: "3",
+    title: "Enquiry Support",
     description:
-      "Seamless deployment with your existing stack — minimal disruption, maximum coverage from day one.",
+      "Professional help with departmental enquiries protects your rights and procedural integrity.",
   },
   {
-    number: "04",
-    title: "Optimization & Growth",
+    number: "4",
+    title: "Service Advisory",
     description:
-      "Continuous improvement through threat modeling, performance analytics, and evolving best practices.",
-  },
-];
-
-export interface StatItem {
-  icon: LucideIcon;
-  value: number;
-  suffix: string;
-  label: string;
-}
-
-export const STATS: StatItem[] = [
-  { icon: Globe, value: 120, suffix: "+", label: "Countries Protected" },
-  { icon: Users, value: 2500, suffix: "+", label: "Enterprise Clients" },
-  { icon: Radar, value: 99, suffix: ".9%", label: "Threat Detection Rate" },
-  { icon: Layers, value: 15, suffix: "B+", label: "Events Processed" },
-];
-
-export interface TestimonialItem {
-  name: string;
-  role: string;
-  company: string;
-  content: string;
-  rating: number;
-  initials: string;
-}
-
-export const TESTIMONIALS: TestimonialItem[] = [
-  {
-    name: "Sarah Chen",
-    role: "Chief Information Security Officer",
-    company: "Meridian Financial",
-    content:
-      "AegisCore transformed how we manage security knowledge. Our team now responds to threats in minutes, not hours. The platform's clarity and depth are unmatched.",
-    rating: 5,
-    initials: "SC",
-  },
-  {
-    name: "Marcus Rivera",
-    role: "VP of Engineering",
-    company: "NovaTech Solutions",
-    content:
-      "The compliance automation alone saved us hundreds of hours during our SOC 2 audit. It's the most intuitive security platform we've ever deployed.",
-    rating: 5,
-    initials: "MR",
-  },
-  {
-    name: "Elena Kowalski",
-    role: "Director of IT Security",
-    company: "GlobalHealth Systems",
-    content:
-      "From onboarding to daily operations, AegisCore delivers enterprise-grade protection without the complexity. Our security posture has never been stronger.",
-    rating: 5,
-    initials: "EK",
-  },
-  {
-    name: "James Okonkwo",
-    role: "Head of Cloud Infrastructure",
-    company: "ScaleForge Inc.",
-    content:
-      "The unified dashboard gives us complete visibility across AWS, Azure, and GCP. Incident response playbooks have cut our MTTR dramatically.",
-    rating: 5,
-    initials: "JO",
+      "Trusted advice on promotions, vigilance, and retirement to safeguard your service rights.",
   },
 ];
 
@@ -233,39 +249,49 @@ export interface FAQItem {
 
 export const FAQ_ITEMS: FAQItem[] = [
   {
-    question: "What makes AegisCore different from other security platforms?",
+    question: "What does IPR & APR Filing include?",
     answer:
-      "AegisCore combines threat intelligence, compliance automation, and security knowledge management in a single unified platform. Unlike point solutions, we provide end-to-end visibility with AI-driven insights that adapt to your organization's unique risk profile.",
+      "IPR & APR Filing involves helping you file your Annual Property Returns and Income Property Returns with proper verification and rectification of any defects under Karnataka Government Servants' Conduct Rules.",
   },
   {
-    question: "How long does implementation typically take?",
+    question: "Who do you assist?",
     answer:
-      "Most enterprise deployments are fully operational within 2-4 weeks. Our guided onboarding process includes discovery, integration setup, team training, and custom playbook configuration to ensure a smooth transition.",
+      "We assist Karnataka government officials, police personnel, PSU employees, and retirees by providing expert procedural and advisory support to ensure confidentiality and integrity in their service matters.",
   },
   {
-    question: "Does AegisCore integrate with our existing security tools?",
+    question: "How can I register or book an appointment?",
     answer:
-      "Yes. AegisCore supports 200+ integrations including SIEM, EDR, IAM, cloud providers, and ticketing systems. Our open API also enables custom integrations for proprietary tools.",
+      "To register or book an appointment, you can call or WhatsApp us at 8277493659. Services are available only to eligible and registered government and PSU members.",
   },
   {
-    question: "What compliance frameworks do you support?",
+    question: "How are replies to memos and notices handled?",
     answer:
-      "We support SOC 2, ISO 27001, HIPAA, GDPR, PCI DSS, NIST CSF, and CIS Controls. Automated evidence collection and continuous monitoring help maintain audit readiness year-round.",
+      "Our memo and notice reply service offers professionally drafted, rule-based replies that comply with natural justice and relevant service rules.",
   },
   {
-    question: "Is there a free trial available?",
+    question: "Who is eligible for your services?",
     answer:
-      "We offer a 14-day fully-featured trial with dedicated onboarding support. Enterprise plans include a proof-of-concept engagement tailored to your security requirements.",
-  },
-  {
-    question: "What kind of support do you provide?",
-    answer:
-      "All plans include 24/7 technical support. Enterprise customers receive a dedicated security advisor, quarterly business reviews, and priority incident response assistance.",
+      "Our services are exclusively for Karnataka state government officials and employees, police personnel, PSU employees, and retired government servants who are registered members.",
   },
 ];
 
-export const HERO_FLOATING_CARDS = [
-  { icon: KeyRound, label: "Encrypted", value: "AES-256" },
-  { icon: Cloud, label: "Cloud Ready", value: "Multi-Cloud" },
-  { icon: Shield, label: "Protected", value: "24/7 SOC" },
+export const BOOKING_SERVICES = [
+  "Filing guidance",
+  "Verification & submission",
+  "Defect rectification",
+  "Income tax return processing",
+  "Assistance with IT notices",
+  "Charge memo scrutiny",
+  "Defence replies",
+  "Procedural guidance",
+  "Rule-based replies",
+  "Natural justice compliance",
+  "Promotion & seniority advice",
+  "Vigilance proceedings",
+  "Pension & gratuity advisory",
+  "Dismissal & removal support",
+  "Disciplinary penalties",
+  "Promotion disputes",
+  "Probation termination",
+  "Pension & post-retirement benefits",
 ] as const;

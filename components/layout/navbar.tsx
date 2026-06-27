@@ -1,71 +1,48 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { NAV_LINKS } from "@/constants/site";
 import { Logo } from "@/components/shared/logo";
-import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { ServicesDropdown } from "@/components/layout/services-dropdown";
 import { MobileDrawer, HamburgerMenu } from "@/components/layout/mobile-drawer";
-import { useScrolled, useActiveSection } from "@/hooks/use-scroll";
+import { useActiveSection } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const scrolled = useScrolled(20);
   const activeSection = useActiveSection(NAV_LINKS.map((l) => l.href));
 
   return (
     <>
-      <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-          scrolled
-            ? "border-b border-border/60 bg-background/80 shadow-lg shadow-black/5 backdrop-blur-xl dark:shadow-black/20"
-            : "bg-transparent"
-        )}
-      >
+      <header className="sticky top-0 z-50 border-b border-border/40 bg-white">
         <div className="container mx-auto flex h-[72px] items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Logo />
+          <Logo size="sm" />
 
           <nav
-            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex"
+            className="hidden items-center rounded-full bg-primary px-2 py-2 lg:flex"
             aria-label="Main navigation"
           >
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "group relative px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
-                  activeSection === link.href && "text-primary"
-                )}
-              >
-                {link.label}
-                <span
+            {NAV_LINKS.map((link) =>
+              link.label === "Services" ? (
+                <ServicesDropdown key={link.href} activeSection={activeSection} />
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
                   className={cn(
-                    "absolute bottom-0 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-primary transition-all duration-300",
-                    activeSection === link.href
-                      ? "w-6"
-                      : "w-0 group-hover:w-4"
+                    "rounded-full px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/15",
+                    activeSection === link.href && "bg-white/20"
                   )}
-                />
-              </a>
-            ))}
+                >
+                  {link.label}
+                </a>
+              )
+            )}
           </nav>
 
-          <div className="flex items-center gap-2">
-            <ThemeToggle />
-            <Button className="hidden sm:inline-flex" asChild>
-              <a href="#cta">Get Started</a>
-            </Button>
-            <HamburgerMenu open={mobileOpen} onClick={() => setMobileOpen(!mobileOpen)} />
-          </div>
+          <HamburgerMenu open={mobileOpen} onClick={() => setMobileOpen(!mobileOpen)} />
         </div>
-      </motion.header>
+      </header>
 
       <MobileDrawer
         open={mobileOpen}

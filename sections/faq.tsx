@@ -1,6 +1,5 @@
 "use client";
 
-import { SectionHeading } from "@/components/shared/section-heading";
 import {
   Accordion,
   AccordionContent,
@@ -8,22 +7,27 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { FAQ_ITEMS } from "@/constants/content";
+import { ScrollReveal } from "@/components/shared/scroll-reveal";
 
 export function FAQSection() {
   return (
     <section
       id="faq"
-      className="relative py-20 md:py-28 lg:py-32"
+      className="bg-white py-16 md:py-20 lg:py-24"
       aria-label="Frequently asked questions"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="FAQ"
-          title="Frequently Asked Questions"
-          description="Find answers to common questions about AegisCore and our security platform."
-        />
+        <ScrollReveal direction="right" className="mx-auto max-w-3xl text-center">
+          <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold text-black">
+            Service Security FAQs
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-[#555555]">
+            Find answers to common questions about our expert support services for
+            Karnataka government and PSU employees.
+          </p>
+        </ScrollReveal>
 
-        <div className="mx-auto max-w-3xl">
+        <ScrollReveal direction="left" className="mx-auto mt-12 max-w-3xl">
           <Accordion type="single" collapsible className="w-full">
             {FAQ_ITEMS.map((item, index) => (
               <AccordionItem key={item.question} value={`item-${index}`}>
@@ -32,7 +36,7 @@ export function FAQSection() {
               </AccordionItem>
             ))}
           </Accordion>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

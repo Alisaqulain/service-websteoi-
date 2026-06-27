@@ -1,4 +1,4 @@
-import { Shield } from "lucide-react";
+import Image from "next/image";
 import { SITE } from "@/constants/site";
 import { cn } from "@/lib/utils";
 
@@ -8,8 +8,9 @@ interface LogoProps {
   size?: "sm" | "md" | "lg";
 }
 
-export function Logo({ className, showText = true, size = "md" }: LogoProps) {
-  const iconSizes = { sm: "size-7", md: "size-9", lg: "size-11" };
+const imageSizes = { sm: 28, md: 36, lg: 44 };
+
+export function Logo({ className, showText = false, size = "md" }: LogoProps) {
   const textSizes = {
     sm: "text-lg",
     md: "text-xl",
@@ -22,14 +23,14 @@ export function Logo({ className, showText = true, size = "md" }: LogoProps) {
       className={cn("group flex items-center gap-2.5", className)}
       aria-label={`${SITE.name} home`}
     >
-      <div
-        className={cn(
-          "relative flex items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent p-1.5 shadow-lg shadow-primary/20 transition-transform duration-300 group-hover:scale-105",
-          iconSizes[size]
-        )}
-      >
-        <Shield className="size-full text-primary-foreground" strokeWidth={2.5} />
-      </div>
+      <Image
+        src="/logo.webp"
+        alt={`${SITE.name} logo`}
+        width={imageSizes[size]}
+        height={imageSizes[size]}
+        className="h-auto w-auto transition-transform duration-300 group-hover:scale-105"
+        priority
+      />
       {showText && (
         <span className={cn("font-bold tracking-tight text-foreground", textSizes[size])}>
           {SITE.name}
